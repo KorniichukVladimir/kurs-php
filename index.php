@@ -9,7 +9,10 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 <h1>php</h1>
 
+=======
+>>>>>>> origin/master
 </body>
 </html>
