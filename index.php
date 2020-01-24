@@ -7,12 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>php</title>
 </head>
-<body>
+<?php
+$h = date('H');
 
-<<<<<<< HEAD
+  if ($h <= 6) {
+    $c = 0;
+  } elseif ($h > 6 && $h <= 12) {
+    $c = 1;
+  } elseif ($h > 12 && $h <= 18) {
+      $c = 2;
+  } else ($h > 18 && $h <= 24) {
+      $c = 3;
+  }
+
+?>
+<body style="background-image: url('<?php echo $h; ?>.jpg'); background-size: cover; color: white;">
+
 <h1>php</h1>
-
-=======
->>>>>>> origin/master
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aspernatur commodi consectetur deleniti, eveniet
+    impedit incidunt non numquam possimus quo quod suscipit tempore totam. Accusantium consectetur eius iste repudiandae
+    suscipit?</p>
 </body>
 </html>
