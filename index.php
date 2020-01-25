@@ -16,12 +16,14 @@ $h = date('H');
     $c = 1;
   } elseif ($h > 12 && $h <= 18) {
       $c = 2;
-  } else ($h > 18 && $h <= 24) {
+  } elseif ($h > 18 && $h <= 24) {
       $c = 3;
+  } else {
+      $c = 0;
   }
 
 ?>
-<body style="background-image: url('<?php echo $h; ?>.jpg'); background-size: cover; color: white;">
+<body style="background-image: url('<?php echo $c; ?>.jpg'); background-size: cover; color: white;">
 
 <h1>php</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aspernatur commodi consectetur deleniti, eveniet
