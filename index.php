@@ -68,23 +68,41 @@
 //
 ////echo $arr['China'];
 //
+//echo "<ul>";
 //foreach ($arr as $key => $value) {
+//echo "<li>";
 //    echo $key;
+//echo "<ol>";
 //    foreach ($value as $item) {
-//        echo "<ul>
-//                <li>$item</li>
-//              </ul>";
+//               echo "<li>$item</li>";
+//
 //    }
+//echo "</ol></li>";
 //}
+//echo "</ul>";
 //
 //?>
 
+<!--form-->
+<?php
+if(count($_POST) > 0) {
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $dt = date('Y-m-d H:i:s');
 
+    file_put_contents('mail.txt', "$dt $name $phone\n", FILE_APPEND);
 
+    echo 'Your message send';
+}
+?>
 
-<h1>php</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aspernatur commodi consectetur deleniti, eveniet
-    impedit incidunt non numquam possimus quo quod suscipit tempore totam. Accusantium consectetur eius iste repudiandae
-    suscipit?</p>
+<form method="post">
+    Name<br>
+    <input type="text" name="name"><br>
+    Number<br>
+    <input type="text" name="phone">
+    <input type="submit" value="Send">
+</form>
+
 </body>
 </html>
