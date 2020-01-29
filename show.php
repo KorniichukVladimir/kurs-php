@@ -1,13 +1,28 @@
 <?php
 
-$apps = file('apps.txt');
+$apps = file('mail.txt');
+
+echo "<table>";
 
 foreach ($apps as $app) {
-  echo "$app<hr>";
+
+    $arr = explode('-||-', $app);
+
+    echo "<tr>";
+
+    foreach ($arr as $one) {
+        echo "<td>$one</td>";
+    }
+    echo "<tr>";
 }
+echo "<table>";
+
 ?>
 
-<table>
-
-</table>
+<style>
+    table td {
+        border: 1px solid black;
+        padding: 5px;
+    }
+</style>
 

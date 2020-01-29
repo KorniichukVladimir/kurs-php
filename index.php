@@ -85,37 +85,39 @@
 
 <!--form-->
 <?php
-if (count($_POST) > 0) {
-  $name = trim($_POST['name']);
-  $phone = trim($_POST['phone']);
-  $dt = date('Y-m-d H:i:s');
+//if (count($_POST) > 0) {
+//    $name = trim($_POST['name']);
+//    $phone = trim($_POST['phone']);
+//    $dt = date('Y-m-d H:i:s');
+//
+//    if (strlen($name) < 2) {
+//        $msg = 'Name not slims';
+//    } elseif (!is_numeric($phone)) {
+//        $msg = 'Number not';
+//    } elseif (strlen($phone) < 7) {
+//        $msg = 'Number not';
+//    } else {
+//        mail("vkornijschuk@gmail.com", "korniichuk.cc.ua", "$dt $name $phone");
+//        file_put_contents('mail.txt', "$dt-||-$name-||-$phone\n", FILE_APPEND);
+//        $msg = 'Your message send';
+//    }
+//
+//} else {
+//    $name = '';
+//    $phone = '';
+//    $msg = 'Write input';
+//}
+//?>
 
-  if (strlen($name) < 2) {
-    $msg = 'Name not slims';
-  } elseif (!is_numeric($phone)) {
-    $msg = 'Number not';
-  } elseif (strlen($phone) < 7) {
-    $msg = 'Number not';
-  } else {
-    mail("vkornijschuk@gmail.com", "korniichuk.cc.ua", "$dt $name $phone");
-    file_put_contents('mail.txt', "$dt-||-$name-||-$phone\n", FILE_APPEND);
-    $msg = 'Your message send';
-  }
+<?//= $msg; ?>
 
-} else {
-  $msg = 'Write input';
-}
-?>
-
-<?= $msg; ?>
-
-<form method="post">
-    Name<br>
-    <input type="text" name="name" value="<?= $name; ?>"><br>
-    Number<br>
-    <input type="text" name="phone" value="<?= $phone; ?>">
-    <input type="submit" value="Send">
-</form>
+<!--<form method="post">-->
+<!--    Name<br>-->
+<!--    <input type="text" name="name" value="--><?//= $name; ?><!--"><br>-->
+<!--    Number<br>-->
+<!--    <input type="text" name="phone" value="--><?//= $phone; ?><!--">-->
+<!--    <input type="submit" value="Send">-->
+<!--</form>-->
 
 <h1>lesson 5, 1:09</h1>
 
