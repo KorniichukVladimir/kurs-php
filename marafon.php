@@ -98,7 +98,7 @@
 //        $msg = 'Number not';
 //    } else {
 //        mail("vkornijschuk@gmail.com", "korniichuk.cc.ua", "$dt $name $phone");
-//        file_put_contents('mail.txt', "$dt-||-$name-||-$phone\n", FILE_APPEND);
+//        file_put_contents('document/mail.txt', "$dt-||-$name-||-$phone\n", FILE_APPEND);
 //        $msg = 'Your message send';
 //    }
 //

@@ -1,6 +1,6 @@
 <?php
 
-$apps = file('mail.txt');
+$apps = file('document/mail.txt');
 
 echo "<table>";
 
