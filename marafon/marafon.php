@@ -119,7 +119,5 @@
 <!--    <input type="submit" value="Send">-->
 <!--</form>-->
 
-<h1>lesson 5, 1:09</h1>
-
 </body>
 </html>

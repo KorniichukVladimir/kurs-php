@@ -41,7 +41,7 @@ gulp.task('serve', function () {
         //     baseDir: "./",
         //     directory: true
         // },
-        proxy: "kurs-php",
+        proxy: "kurs-php/php.1-file",
         // proxy: "duncany/about.php",
         host: 'localhost',
         port: 3000,
