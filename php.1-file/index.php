@@ -47,6 +47,7 @@ a+ - append & read
  file_put_contents('logo.txt', $to_save . "\n", FILE_APPEND);
 
  ?>
-
+ 
+ 
 </body>
 </html>

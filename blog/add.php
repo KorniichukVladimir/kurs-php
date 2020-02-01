@@ -6,7 +6,7 @@ if( count($_POST) > 0){
 	$content = $_POST['content'];
 	
 	file_put_contents("data/$title", $content);
-	header("Location: index.php");
+	header("Location: post.php");
 }else{
 	//get
 }
@@ -16,9 +16,10 @@ if( count($_POST) > 0){
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>blog</title>
+		<title>forma</title>
 	</head>
 	<body>
+	
 		<form method="post">
 			Name file<br>
 			<input type="text" name="title"><br>
@@ -26,5 +27,9 @@ if( count($_POST) > 0){
 			<textarea name="content"></textarea><br>
 			<input type="submit" value="Save"><br>
 		</form>
+		<hr>
+		<a href="post.php">post</a><br>
+		<a href="article.php">article</a>
+		
 	</body>
 </html>
