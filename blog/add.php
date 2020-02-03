@@ -5,8 +5,16 @@ if( count($_POST) > 0){
 	$title = $_POST['title'];
 	$content = $_POST['content'];
 	
-	file_put_contents("data/$title", $content);
-	header("Location: post.php");
+	// strlen — Возвращает длину строки
+	// trim — Удаляет пробелы (или другие символы) из начала и конца строки
+	// strip_tags — Удаляет теги HTML и PHP из строки
+	if(strlen($title) > 1){
+		$title = trim(strip_tags($title));
+		file_put_contents("data/$title", $content);
+		header("Location: post.php");
+	}
+	
+	
 }else{
 	//get
 }

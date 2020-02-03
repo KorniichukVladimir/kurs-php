@@ -15,13 +15,8 @@
 				
 				//is_file — Определяет, является ли файл обычным файлом
 				//file_exists -- Проверить наличие указанного файла или каталога.
-				//trim — Удаляет пробелы (или другие символы) из начала и конца строки
-				//strip_tags — Удаляет теги HTML и PHP из строки
 				
-				
-				if(file_exists($one)){
-					$one = trim(strip_tags($one));
-				} elseif(is_file("data/$one")){
+				if(is_file("data/$one")){
 					echo "<a href=\"article.php?id=$one\" target=\"_blank\">$one</a><hr>";
 				}
 			}
