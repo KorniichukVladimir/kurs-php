@@ -6,28 +6,31 @@ if( count($_POST) > 0){
 	 // trim — Удаляет пробелы (или другие символы) из начала и конца строки
 	$title = trim($_POST['title']);
 	$content = trim($_POST['content']);
+	$path = "data/$title";
 	
 	// strip_tags — Удаляет теги HTML и PHP из строки
 	if(empty($title)) {
 		// empty — Проверяет, пуста ли переменная
-		echo 'Заголовок не может бить пустим';
-	} elseif(file_exists("data/$title")) {
+		$msg = 'Заголовок не может бить пустим';
+	} elseif(file_exists($path)) {
 		// file_exists -- Проверить наличие указанного файла или каталога
-		echo 'Статья с таким заголовком уже существует';
+		$msg = 'Статья с таким заголовком уже существует';
 	} elseif(ctype_digit($title)) {
 		// is_numeric — Проверяет, является ли переменная числом или строкой, содержащей число
 		// ctype_digit — Проверяет наличие цифровых символов в строке
-		echo 'Заголовок не должен местить числа';
+		$msg = 'Заголовок не должен местить числа';
 	} elseif(strlen($content) < 10 ) {
 		// strlen — Возвращает длину строки
-		echo 'Новость не может местить меньше 10-ти символов';
+		$msg = 'Новость не может местить меньше 10-ти символов';
 	} else {
-		file_put_contents("data/$title", $content);
+		file_put_contents($path, $content);
 		header("Location: post.php");
 		exit();
 	}
 }else{
 	//get
+	
+	$msg = 'Для создания новости заполните все поля';
 	$title = '';
 	$content = '';
 }
@@ -41,6 +44,8 @@ if( count($_POST) > 0){
 		<title>forma</title>
 	</head>
 	<body>
+	
+	<?php echo $msg = ''; ?>
 	
 		<form method="post">
 			Name file<br>

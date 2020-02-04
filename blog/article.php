@@ -12,10 +12,11 @@
 	
 		<?php
 			$name = $_GET['id'];
+			$path = "data/$name";
 		
 			// file_exists -- Проверить наличие указанного файла или каталога
-			if($name != '' && file_exists("data/$name") && is_file("data/$name")) {
-				$text = file_get_contents("data/$name");
+			if($name != '' && file_exists($path) && is_file($path)) {
+				$text = file_get_contents($path);
 				echo "<h1>$name</h1>";
 				echo "<div>$text</div>";
 			} else {
