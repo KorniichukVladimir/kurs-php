@@ -10,7 +10,7 @@
  
   // setcookie('название', 'значение', срок);
   
-/*  if(isset($_COOKIE['entry'])) {
+  if(isset($_COOKIE['entry'])) {
 	 $t = $_COOKIE['entry'];
  } else {
 	 $t = time();
@@ -21,18 +21,12 @@
 	 echo 'sale';
  } else {
 	 echo 'No sale';
- } */
+ } 
  
 /* session_start();
-echo 36 ** 26; */
 
 
-  $n = 10;
-  for($i = $n; $i > 0; $i--){
-	  $arr[] = $i;
-  }
-  return $arr;
-
+$ages
  
  // session_start — Стартует новую сессию, либо возобновляет существующую
 /*  setcookie('login', 'admin', time() + 3600 * 24 * 365);

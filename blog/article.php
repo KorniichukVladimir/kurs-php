@@ -29,7 +29,9 @@
 		?>
 		<hr>
 		<a href="post.php">post</a><br>
-		<a href="add.php">add</a>
+		<a href="add.php">add</a><br>
+		<a href="edit.php">edit</a>
+		
 		
 	</body>
 </html>

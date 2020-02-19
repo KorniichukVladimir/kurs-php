@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+ if (!isset($_SESSION['auth'])) {
+	 header('location: auth.php');
+	 exit();
+ }
+
 if( count($_POST) > 0){
      // post
 	 
@@ -45,7 +52,7 @@ if( count($_POST) > 0){
 	</head>
 	<body>
 	
-	<?php echo $msg = ''; ?>
+	<?php echo $msg; ?>
 	
 		<form method="post">
 			Name file<br>
@@ -56,6 +63,7 @@ if( count($_POST) > 0){
 		</form>
 		<hr>
 		<a href="post.php">post</a><br>
+		<a href="edit.php">edit</a><br>
 		
 	</body>
 </html>
