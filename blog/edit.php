@@ -6,11 +6,12 @@
 		 header('location: auth.php');
 		 exit();
 	 }
-	 
+
 	if (count($_POST) > 0) {
-		
+
+
 	} else {
-		
+
 	}
 ?>
 
