@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ?>
 
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>news</title>
@@ -17,8 +17,8 @@ $path = "data/$name";
 // file_exists -- Проверить наличие указанного файла или каталога
 if ($name != '' && file_exists($path) && is_file($path)) {
     $text = file_get_contents($path);
-    echo '<h1>$name</h1>';
-    echo '<div>$text</div>';
+    echo "<h1>$name</h1>";
+    echo "<div>$text</div>";
 } else {
     echo '
 			<h1>404</h1>
@@ -30,7 +30,7 @@ if ($name != '' && file_exists($path) && is_file($path)) {
 <hr>
 <a href="post.php">post</a><br>
 <a href="add.php">add</a><br>
-<a href="edit.php">edit</a>
+<a href="edit.php?id=<?= $name; ?>">edit</a>
 <a href="auth.php">Exit</a>
 
 </body>

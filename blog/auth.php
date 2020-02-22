@@ -7,7 +7,7 @@ if (count($_POST) > 0) {
 
         if (isset($_POST['remember'])) {
             setcookie('login', 'admin', time() + 3600 * 24 * 7);
-            setcookie('pass', 'qwerty', time() + 3600 * 24 * 7);
+            setcookie('pass', md5('qwerty'), time() + 3600 * 24 * 7);
         }
 
         header('Location: post.php');

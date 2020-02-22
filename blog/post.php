@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>List news</title>
@@ -20,11 +20,6 @@ foreach ($news as $one) {
         echo "<a href=\"article.php?id=$one\" target=\"_blank\">$one</a><hr>";
     }
 }
-/*
-echo "<pre>";
-    print_r($one);
-echo "</pre>";
-*/
 
 ?>
 
