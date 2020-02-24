@@ -30,7 +30,7 @@ if ($name != '' && file_exists($path) && is_file($path)) {
 <hr>
 <a href="post.php">post</a><br>
 <a href="add.php">add</a><br>
-<a href="edit.php?id=<?= $name; ?>">edit</a>
+<a href="edit.php?id=<?= $name; ?>">edit</a><br>
 <a href="auth.php">Exit</a>
 
 </body>

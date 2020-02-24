@@ -2,13 +2,11 @@
 
 session_start();
 
-if (!isset($_SESSION['auth'])) {
-    if ($_COOKIE['login'] == 'admin' && $_COOKIE['pass'] == md5('qwerty')) {
-        $_SESSION['auth'] = true;
-    } else {
-        header('location: auth.php');
-        exit();
-    }
+include_once "is_login.php";
+
+if ($_SESSION['auth'] == false) {
+	header ("Location: auth.php");
+	exit();
 }
 
 if (count($_POST) > 0) {
@@ -46,7 +44,6 @@ if (count($_POST) > 0) {
     $content = '';
 }
 
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -56,14 +53,15 @@ if (count($_POST) > 0) {
 </head>
 <body>
 
-<?php echo $msg; ?>
+<?php echo $msg; ?><br><br>
 
 <form method="post">
     Name file<br>
     <input type="text" name="title" value="<?= $title ?>"><br>
     Content file<br>
     <textarea name="content"><?= $content ?></textarea><br><br>
-    <input type="submit" value="Save"><br>
+    <input type="submit" value="Save">
+    <input type="reset" value="Delet"><br>
 </form>
 <hr>
 <a href="post.php">post</a><br>

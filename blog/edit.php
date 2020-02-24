@@ -2,13 +2,11 @@
 
 session_start();
 
-if (!isset($_SESSION['auth'])) {
-    if ($_COOKIE['login'] == 'admin' && $_COOKIE['pass'] == md5('qwerty')) {
-        $_SESSION['auth'] = true;
-    } else {
-        header('location: auth.php');
-        exit();
-    }
+include_once "is_login.php";
+
+if ($_SESSION['auth'] == false) {
+	header ("Location: auth.php");
+	exit();
 }
 if(count($_POST) > 0){
 
@@ -17,45 +15,42 @@ if(count($_POST) > 0){
     $content = trim($_POST['content']);
 
 // проверка, что поля не пустые
-    if ($title == '' ||  $content == '' ){
+    if ($title == '' ||  $content == '' ) {
         $error = 'Все поля должны быть заполнены!';
+    } 
+	//проверки, что название состоит не из цифр и уникально
+	elseif (ctype_digit($title)) {
+        $error = 'Название должно содержать только цифры!';
     }
-// проверка, поменялось ли название файла
-    elseif($title != $name){
+	// проверка, поменялось ли название файла
+    elseif ($title != $name) {
 
-        //проверки, что название состоит из цифр и уникально
-        if (!ctype_digit($title)){
-            $error = 'Название должно содержать только цифры!';
-        }
-
-        elseif (file_exists("data/$title") ){
+        if (file_exists("data/$title")){
             $error = 'Такое название уже есть!';
         }
         // переименовываем файл и сохраняем контент
-        else{
-            rename("data/$name","data/$title");
+        else {
+			unlink("data/$name");
             file_put_contents("data/$title", $content);
-            header ("Location: index.php");
+            header ("Location: post.php");
             exit();
         }
     }
     // если название не поменялось, сразу сохраняем контент
-    else{
-
+    else {
         file_put_contents("data/$title", $content);
-        header ("Location: index.php");
+        header ("Location: post.php");
         exit();
     }
 
     //Выводии ошибку
     echo "<p>$error</p>";
-
 }
 
 else{
-    $fname = $_GET['f'];
-    $title = $fname;
-    $content = file_get_contents("data/$fname");
+    $name = $_GET['id'];
+    $title = $name;
+    $content = file_get_contents("data/$name");
     $error = '';
 }
 
@@ -70,9 +65,9 @@ else{
 <body>
 <form method="post">
     Name file<br>
-    <input type="text" name="title"><br>
+    <input type="text" name="title" value="<?= $title ?>"><br>
     Content file<br>
-    <textarea name="content"></textarea><br><br>
+    <textarea name="content"><?= $content ?></textarea><br><br>
     <input type="submit" value="Save"><br>
 </form>
 <hr>

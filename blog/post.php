@@ -17,13 +17,13 @@ foreach ($news as $one) {
     //file_exists -- Проверить наличие указанного файла или каталога.
 
     if (is_file("data/$one")) {
-        echo "<a href=\"article.php?id=$one\" target=\"_blank\">$one</a><hr>";
+        echo "<a href=\"article.php?id=$one\">$one</a><hr>";
     }
 }
 
 ?>
 
-<a href="add.php">add</a>
+<a href="add.php">add</a><br>
 <a href="auth.php">Exit</a>
 </body>
 </html>
