@@ -7,7 +7,6 @@
 <body>
 
 <?php
-error_reporting(E_ALL);
 include_once "is_login.php";
 
 $name = $_GET['id'];
@@ -19,11 +18,7 @@ if ($name != '' && file_exists($path) && is_file($path)) {
   echo "<h1>$name</h1>";
   echo "<div>$text</div>";
 } else {
-  echo '
-			<h1>404</h1>
-			<hr>
-			<a href="post.php">post</a><br>
-				';
+  echo ' <h1>404</h1><hr><a href="post.php">post</a><br>';
 }
 ?>
 <hr>
@@ -31,9 +26,11 @@ if ($name != '' && file_exists($path) && is_file($path)) {
 <?php if (is_auth()) : ?>
     <a href="add.php">add</a><br>
     <a href="edit.php?id=<?= $name; ?>">edit</a><br>
-    <a href="auth.php">Exit</a>
+    <a href="auth.php">Exit</a><br>
 <? endif; ?>
-<a href="auth.php">In login</a>
+<?php if (!is_auth()) : ?>
+    <a href="auth.php">In login</a>
+<? endif; ?>
 
 </body>
 </html>

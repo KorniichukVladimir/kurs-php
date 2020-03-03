@@ -61,7 +61,6 @@ if (count($_POST) > 0) {
     Content file<br>
     <textarea name="content"><?= $content ?></textarea><br><br>
     <input type="submit" value="Save">
-    <input type="reset" value="Delet"><br>
 </form>
 <hr>
 <a href="post.php">post</a><br>

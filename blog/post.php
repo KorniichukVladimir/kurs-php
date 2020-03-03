@@ -27,9 +27,10 @@ include_once "is_login.php";
 
 <?php if (is_auth()) : ?>
     <a href="add.php">add</a><br>
-    <a href="edit.php?id=<?= $name; ?>">edit</a><br>
-    <a href="auth.php">Exit</a>
+    <a href="auth.php">Exit</a><br>
 <? endif; ?>
-<a href="auth.php">In login</a>
+<?php if (!is_auth()) : ?>
+    <a href="auth.php">In login</a>
+<? endif; ?>
 </body>
 </html>
