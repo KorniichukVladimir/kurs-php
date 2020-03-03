@@ -4,7 +4,7 @@ session_start();
 
 include_once "is_login.php";
 
-if ($_SESSION['auth'] == false) {
+if (!is_auth()) {
 	header ("Location: auth.php");
 	exit();
 }

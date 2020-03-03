@@ -13,17 +13,23 @@ $news = scandir('data');
 
 foreach ($news as $one) {
 
-    //is_file — Определяет, является ли файл обычным файлом
-    //file_exists -- Проверить наличие указанного файла или каталога.
+  //is_file — Определяет, является ли файл обычным файлом
+  //file_exists -- Проверить наличие указанного файла или каталога.
 
-    if (is_file("data/$one")) {
-        echo "<a href=\"article.php?id=$one\">$one</a><hr>";
-    }
+  if (is_file("data/$one")) {
+    echo "<a href=\"article.php?id=$one\">$one</a><hr>";
+  }
 }
+
+include_once "is_login.php";
 
 ?>
 
-<a href="add.php">add</a><br>
-<a href="auth.php">Exit</a>
+<?php if (is_auth()) : ?>
+    <a href="add.php">add</a><br>
+    <a href="edit.php?id=<?= $name; ?>">edit</a><br>
+    <a href="auth.php">Exit</a>
+<? endif; ?>
+<a href="auth.php">In login</a>
 </body>
 </html>

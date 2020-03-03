@@ -119,5 +119,17 @@
 <!--    <input type="submit" value="Send">-->
 <!--</form>-->
 
+<!--<script>-->
+<!--    $(window).on("scroll", function(){-->
+<!--        $('input[name="scroll"]').val($(window).scrollTop());-->
+<!--    });-->
+<!---->
+<!--    --><?php //if (!empty($_REQUEST['scroll'])): ?>
+//    $(document).ready(function(){
+//        window.scrollTo(0, <?php //echo intval($_REQUEST['scroll']); ?>//);
+//    });
+//    <?php //endif; ?>
+<!--</script>-->
+
 </body>
 </html>

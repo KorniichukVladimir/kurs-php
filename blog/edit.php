@@ -4,10 +4,11 @@ session_start();
 
 include_once "is_login.php";
 
-if ($_SESSION['auth'] == false) {
-	header ("Location: auth.php");
-	exit();
+if (!is_auth()) {
+  header ("Location: auth.php");
+  exit();
 }
+
 if(count($_POST) > 0){
 
     $name = $_GET['id'];
@@ -69,6 +70,7 @@ else{
     Content file<br>
     <textarea name="content"><?= $content ?></textarea><br><br>
     <input type="submit" value="Save"><br>
+    <input type="submit" name="delete">
 </form>
 <hr>
 <a href="post.php">post</a><br>
